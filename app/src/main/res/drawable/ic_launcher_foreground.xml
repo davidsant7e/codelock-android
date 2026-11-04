@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Arco del candado -->
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M42,48 L42,40 C42,33 47,28 54,28 C61,28 66,33 66,40 L66,48" />
+    <!-- Cuerpo -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M36,48 L72,48 Q76,48 76,52 L76,76 Q76,80 72,80 L36,80 Q32,80 32,76 L32,52 Q32,48 36,48 Z" />
+    <!-- Signos < > -->
+    <path
+        android:strokeColor="#FF1E3A5F"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000"
+        android:pathData="M48,57 L42,64 L48,71 M60,57 L66,64 L60,71" />
+</vector>
