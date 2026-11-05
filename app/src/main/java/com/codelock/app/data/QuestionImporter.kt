@@ -3,6 +3,7 @@ package com.codelock.app.data
 import com.codelock.app.data.db.CategoryEntity
 import com.codelock.app.data.db.QuestionDao
 import com.codelock.app.data.db.QuestionEntity
+import com.codelock.app.domain.SourceLinks
 import javax.inject.Inject
 import javax.inject.Singleton
 import org.json.JSONObject
@@ -31,7 +32,11 @@ data class ImportResult(
  *     { "name": "Kotlin",
  *       "questions": [
  *         { "statement": "¿...?", "options": ["a", "b", "c", "d"], "correct": 1,
- *           "explanation": "Porque...", "difficulty": 1 } ] } ]
+ *           "explanation": "Porque...", "difficulty": 1,
+ *           "source": "Documentación de Kotlin · Variables",
+ *           "sourceUrl": "https://kotlinlang.org/docs/basic-syntax.html#variables" } ] } ]
+ *
+ * "source" y "sourceUrl" son opcionales: sin ellos, "Ver documentación" busca la pregunta en la web.
  * }
  */
 @Singleton
@@ -90,6 +95,8 @@ class QuestionImporter @Inject constructor(
                             correctIndex = correct,
                             explanation = q.optString("explanation").trim().ifEmpty { null },
                             difficulty = q.optInt("difficulty", 1).coerceIn(1, 3),
+                            source = q.optString("source").trim().ifEmpty { null },
+                            sourceUrl = SourceLinks.cleanUrl(q.optString("sourceUrl")),
                         ),
                     )
                 }
@@ -97,6 +104,10 @@ class QuestionImporter @Inject constructor(
             val ids = dao.insertQuestions(questions)
             added += ids.count { it != -1L }
             duplicates += ids.count { it == -1L }
+            // Las que ya existían: si ahora traen fuente y antes no tenían, se la ponemos.
+            questions.zip(ids).forEach { (q, id) ->
+                if (id == -1L && q.source != null) dao.fillSource(categoryId, q.statement, q.source, q.sourceUrl)
+            }
         }
         return ImportResult(touched, added, duplicates, errors)
     }

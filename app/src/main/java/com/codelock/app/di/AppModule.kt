@@ -27,7 +27,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
-        Room.databaseBuilder(context, AppDatabase::class.java, "codelock.db").build()
+        Room.databaseBuilder(context, AppDatabase::class.java, "codelock.db")
+            .addMigrations(AppDatabase.MIGRATION_1_2)
+            .build()
 
     @Provides
     fun provideQuestionDao(database: AppDatabase): QuestionDao = database.questionDao()

@@ -63,5 +63,19 @@ object FrequencyPolicy {
 enum class AnswerResult(val code: Int) {
     CORRECT(1),
     WRONG(0),
+    /** "No sé": vuelve pronto como una fallada, pero no baja tu porcentaje de aciertos. */
+    DONT_KNOW(2),
     SKIPPED(-1),
+}
+
+/** El enlace para "Ver documentación": el de la pregunta, o una búsqueda si no tiene. */
+object SourceLinks {
+    fun isWebUrl(url: String?): Boolean =
+        url != null && (url.startsWith("https://") || url.startsWith("http://")) && url.length > 10 && ' ' !in url
+
+    fun cleanUrl(url: String?): String? = url?.trim()?.takeIf { isWebUrl(it) }
+
+    fun linkFor(statement: String, category: String, sourceUrl: String?): String =
+        cleanUrl(sourceUrl) ?: ("https://www.google.com/search?q=" +
+            java.net.URLEncoder.encode("$category $statement", "UTF-8"))
 }

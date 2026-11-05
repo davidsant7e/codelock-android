@@ -29,6 +29,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -36,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.codelock.app.data.db.QuestionWithCategory
+import com.codelock.app.domain.SourceLinks
 import com.codelock.app.ui.theme.AnswerColors
 
 private val LETTERS = listOf("A", "B", "C", "D", "E", "F")
@@ -64,8 +66,10 @@ fun QuestionScreen(onClose: () -> Unit, viewModel: QuestionViewModel = hiltViewM
                     QuestionContent(
                         question = question,
                         selected = state.selected,
+                        dontKnow = state.dontKnow,
                         correct = state.correct,
                         onAnswer = viewModel::answer,
+                        onDontKnow = viewModel::dontKnow,
                         onSkip = close,
                         onAnother = viewModel::loadNext,
                         onDone = onClose,
@@ -80,13 +84,15 @@ fun QuestionScreen(onClose: () -> Unit, viewModel: QuestionViewModel = hiltViewM
 private fun QuestionContent(
     question: QuestionWithCategory,
     selected: Int?,
+    dontKnow: Boolean,
     correct: Boolean,
     onAnswer: (Int) -> Unit,
+    onDontKnow: () -> Unit,
     onSkip: () -> Unit,
     onAnother: () -> Unit,
     onDone: () -> Unit,
 ) {
-    val answered = selected != null
+    val answered = selected != null || dontKnow
     val q = question.question
     Column(
         Modifier
@@ -121,8 +127,20 @@ private fun QuestionContent(
             )
         }
 
+        if (!answered) {
+            TextButton(onClick = onDontKnow, modifier = Modifier.align(Alignment.CenterHorizontally)) {
+                Text("No sé")
+            }
+        }
+
         if (answered) {
-            Feedback(correct = correct, explanation = q.explanation)
+            Feedback(
+                correct = correct,
+                dontKnow = dontKnow,
+                correctLetter = LETTERS.getOrElse(q.correctIndex) { "${q.correctIndex + 1}" },
+                explanation = q.explanation,
+            )
+            SourceCard(question)
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedButton(onClick = onAnother, modifier = Modifier.weight(1f)) { Text("Otra pregunta") }
                 Button(onClick = onDone, modifier = Modifier.weight(1f)) { Text("Listo") }
@@ -167,15 +185,23 @@ private fun OptionCard(letter: String, text: String, state: OptionState, enabled
 }
 
 @Composable
-private fun Feedback(correct: Boolean, explanation: String?) {
-    val color = if (correct) AnswerColors.correct else AnswerColors.wrong
+private fun Feedback(correct: Boolean, dontKnow: Boolean, correctLetter: String, explanation: String?) {
+    val color = when {
+        dontKnow -> MaterialTheme.colorScheme.primary
+        correct -> AnswerColors.correct
+        else -> AnswerColors.wrong
+    }
     Card(
         colors = CardDefaults.cardColors(containerColor = color.copy(alpha = 0.12f)),
         modifier = Modifier.fillMaxWidth(),
     ) {
         Column(Modifier.padding(16.dp)) {
             Text(
-                if (correct) "¡Correcto!" else "Incorrecto",
+                when {
+                    dontKnow -> "No pasa nada: la respuesta es la $correctLetter"
+                    correct -> "¡Correcto!"
+                    else -> "Incorrecto"
+                },
                 style = MaterialTheme.typography.titleMedium,
                 color = color,
                 fontWeight = FontWeight.Bold,
@@ -183,6 +209,31 @@ private fun Feedback(correct: Boolean, explanation: String?) {
             if (!explanation.isNullOrBlank()) {
                 Spacer(Modifier.height(6.dp))
                 Text(explanation, style = MaterialTheme.typography.bodyMedium)
+            }
+        }
+    }
+}
+
+/** "De dónde sale": la fuente de la pregunta y un botón para abrir la documentación. */
+@Composable
+private fun SourceCard(question: QuestionWithCategory) {
+    val q = question.question
+    val uriHandler = LocalUriHandler.current
+    val hasUrl = SourceLinks.isWebUrl(q.sourceUrl)
+    OutlinedCard(Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp)) {
+            Text("De dónde sale", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+            Spacer(Modifier.height(4.dp))
+            Text(
+                q.source ?: "Esta pregunta no tiene fuente guardada (tema: ${question.categoryName}).",
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            Spacer(Modifier.height(8.dp))
+            OutlinedButton(onClick = {
+                // Sin navegador instalado, openUri falla: no cerramos la pantalla por eso.
+                runCatching { uriHandler.openUri(SourceLinks.linkFor(q.statement, question.categoryName, q.sourceUrl)) }
+            }) {
+                Text(if (hasUrl) "Ver documentación" else "Buscar en la web")
             }
         }
     }

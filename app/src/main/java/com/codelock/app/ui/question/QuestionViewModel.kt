@@ -18,9 +18,11 @@ data class QuestionUiState(
     val loading: Boolean = true,
     val question: QuestionWithCategory? = null,
     val selected: Int? = null,
+    /** Pulsó "No sé": se muestra la respuesta sin marcarla como error. */
+    val dontKnow: Boolean = false,
 ) {
     val empty: Boolean get() = !loading && question == null
-    val answered: Boolean get() = selected != null
+    val answered: Boolean get() = selected != null || dontKnow
     val correct: Boolean get() = question != null && selected == question.question.correctIndex
 }
 
@@ -56,6 +58,15 @@ class QuestionViewModel @Inject constructor(
         _state.value = current.copy(selected = index)
         val result = if (index == question.question.correctIndex) AnswerResult.CORRECT else AnswerResult.WRONG
         record(question, result)
+    }
+
+    /** "No sé": muestra la respuesta y la explicación; la pregunta vuelve pronto. */
+    fun dontKnow() {
+        val current = _state.value
+        val question = current.question ?: return
+        if (current.answered) return
+        _state.value = current.copy(dontKnow = true)
+        record(question, AnswerResult.DONT_KNOW)
     }
 
     /** Cerrar sin responder cuenta como "saltada" (no como error). */

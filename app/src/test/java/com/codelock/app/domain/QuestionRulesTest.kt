@@ -102,4 +102,32 @@ class QuestionRulesTest {
         }.eachCount()
         assertTrue((counts[1L] ?: 0) > (counts[2L] ?: 0) * 3)
     }
+
+    // ------------------------------------------------- "no sé" y documentación
+    @Test
+    fun `no se tiene su propio codigo guardado`() {
+        assertEquals(2, AnswerResult.DONT_KNOW.code)
+        assertEquals(4, AnswerResult.values().map { it.code }.toSet().size)
+    }
+
+    @Test
+    fun `ver documentacion usa el enlace de la pregunta`() {
+        val url = "https://kotlinlang.org/docs/data-classes.html"
+        assertEquals(url, SourceLinks.linkFor("¿Qué genera una data class?", "Kotlin", url))
+    }
+
+    @Test
+    fun `sin enlace valido busca la pregunta en la web`() {
+        for (malo in listOf(null, "", "kotlinlang.org", "javascript:alert(1)", "https://a b.com/x")) {
+            val link = SourceLinks.linkFor("¿Qué hace git stash?", "Git", malo)
+            assertTrue(link, link.startsWith("https://www.google.com/search?q="))
+            assertTrue(link, link.contains("Git+%C2%BFQu%C3%A9+hace+git+stash%3F"))
+        }
+    }
+
+    @Test
+    fun `limpia espacios del enlace y rechaza los que no son web`() {
+        assertEquals("https://git-scm.com/book/es/v2", SourceLinks.cleanUrl("  https://git-scm.com/book/es/v2 "))
+        assertNull(SourceLinks.cleanUrl("file:///sdcard/x.html"))
+    }
 }

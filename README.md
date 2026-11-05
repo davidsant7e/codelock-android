@@ -75,7 +75,9 @@ actualizado varias veces.
           "options": ["1965", "1969", "1972", "1975"],
           "correct": 1,
           "explanation": "La misión Apolo 11 alunizó en julio de 1969.",
-          "difficulty": 1
+          "difficulty": 1,
+          "source": "NASA · Apollo 11",
+          "sourceUrl": "https://www.nasa.gov/mission/apollo-11/"
         }
       ]
     }
@@ -91,6 +93,15 @@ actualizado varias veces.
 | `correct` | Sí | Posición de la opción correcta, **contando desde 0** (la primera es 0). |
 | `explanation` | No | Se muestra después de responder. |
 | `difficulty` | No | 1 (fácil) a 3 (difícil). Por ahora se guarda para usarla más adelante. |
+| `source` | No | De dónde sale la pregunta (nombre de la documentación). Se muestra en «De dónde sale». |
+| `sourceUrl` | No | Enlace `https://` a esa documentación: botón **Ver documentación**. Sin enlace, el botón es **Buscar en la web** (busca la pregunta). |
+
+Si importas otra vez un archivo con preguntas que ya tenías, a las que no tenían fuente se les agrega.
+
+### «No sé» y «De dónde sale»
+
+- **No sé**: debajo de las opciones. Muestra la respuesta y la explicación sin contarla como error en tu porcentaje; la pregunta vuelve pronto, igual que una fallada.
+- **De dónde sale**: después de responder, la fuente de la pregunta y el botón para abrir la documentación en el navegador. Las 32 preguntas del banco inicial ya traen su fuente (documentación oficial de Kotlin, Python, PostgreSQL, el libro Pro Git, MDN o Wikipedia).
 
 El banco inicial está en `app/src/main/assets/questions_seed.json` y usa este mismo formato;
 sirve de ejemplo.
