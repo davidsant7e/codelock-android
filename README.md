@@ -104,7 +104,17 @@ Si importas otra vez un archivo con preguntas que ya tenías, a las que no tení
 - **De dónde sale**: después de responder, la fuente de la pregunta y el botón para abrir la documentación en el navegador. Las 32 preguntas del banco inicial ya traen su fuente (documentación oficial de Kotlin, Python, PostgreSQL, el libro Pro Git, MDN o Wikipedia).
 
 El banco inicial está en `app/src/main/assets/questions_seed.json` y usa este mismo formato;
-sirve de ejemplo.
+sirve de ejemplo. Al abrir la app se cargan **todos** los `.json` de `assets/` (las repetidas se
+ignoran), así que agregar un banco es soltar su archivo ahí.
+
+### Banco «Programación desde cero»
+
+`assets/programacion-desde-cero.json`: 120 preguntas del libro *Programación desde cero*
+(5 por capítulo, 24 capítulos) en tres temas que puedes activar o desactivar por separado:
+**Nivel 1 Fundamentos**, **Nivel 2 Desarrollo práctico** y **Nivel 3 Profundización**.
+Cada pregunta dice de qué capítulo sale («Programación desde cero · Cap. 07 …») y, cuando
+aplica, enlaza la documentación oficial de Python o Git. Es el mismo archivo que usa
+CodeLock para Windows en `preguntas/`.
 
 ## Pruebas automáticas
 

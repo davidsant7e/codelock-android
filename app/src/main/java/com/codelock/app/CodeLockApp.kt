@@ -26,14 +26,20 @@ class CodeLockApp : Application() {
     }
 
     /**
-     * Carga el banco inicial (assets/questions_seed.json) en cada arranque: las repetidas se ignoran,
-     * así que solo agrega las preguntas nuevas de una actualización y completa las fuentes que falten.
+     * Carga los bancos incluidos en la app (todos los .json de assets: questions_seed.json,
+     * programacion-desde-cero.json...) en cada arranque. Las repetidas se ignoran, así que solo
+     * agrega las preguntas nuevas de una actualización y completa las fuentes que falten.
      */
     private fun syncSeed() {
         appScope.launch {
-            val json = assets.open("questions_seed.json").bufferedReader().use { it.readText() }
-            val result = importer.importJson(json)
-            Log.i("CodeLock", "Banco inicial: ${result.summary}")
+            val banks = assets.list("").orEmpty().filter { it.endsWith(".json") }.sorted()
+            for (bank in banks) {
+                runCatching {
+                    val json = assets.open(bank).bufferedReader().use { it.readText() }
+                    importer.importJson(json)
+                }.onSuccess { Log.i("CodeLock", "Banco $bank: ${it.summary}") }
+                    .onFailure { Log.w("CodeLock", "No se pudo cargar $bank", it) }
+            }
         }
     }
 }
