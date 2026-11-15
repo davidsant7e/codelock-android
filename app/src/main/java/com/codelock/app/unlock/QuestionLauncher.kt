@@ -11,6 +11,7 @@ import android.view.View
 import android.view.WindowManager
 import com.codelock.app.data.SettingsRepository
 import com.codelock.app.domain.FrequencyPolicy
+import com.codelock.app.registro.Registro
 import com.codelock.app.ui.question.QuestionActivity
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -44,15 +45,15 @@ class QuestionLauncher @Inject constructor(
 
         val current = settings.state.value
         val now = System.currentTimeMillis()
-        Log.i(TAG, "Desbloqueo detectado (activo=${current.enabled}, intervalo=${current.minIntervalMinutes} min)")
+        Log.i(TAG, "Desbloqueo detectado (activo=${current.enabled}, intervalo=${current.minIntervalMinutes} min)"); Registro.evento("CODELOCK", "info", "detalle" to "Desbloqueo detectado (activo=${current.enabled}, intervalo=${current.minIntervalMinutes} min)")
         if (!FrequencyPolicy.shouldAsk(current.enabled, current.lastShownAt, now, current.minIntervalMinutes)) {
-            Log.i(TAG, "Todavía no toca pregunta")
+            Log.i(TAG, "Todavía no toca pregunta"); Registro.evento("CODELOCK", "info", "detalle" to "Todavía no toca pregunta")
             return
         }
         settings.markShown(now)
 
         if (!Settings.canDrawOverlays(context)) {
-            Log.w(TAG, "Sin permiso 'Mostrar sobre otras apps': se usa la notificación")
+            Log.w(TAG, "Sin permiso 'Mostrar sobre otras apps': se usa la notificación"); Registro.evento("CODELOCK", "aviso", "detalle" to "Sin permiso 'Mostrar sobre otras apps': se usa la notificación")
             Notifications.showQuestionPrompt(context)
             return
         }
@@ -61,7 +62,7 @@ class QuestionLauncher @Inject constructor(
         openWithOverlayAnchor()
         main.postDelayed({
             if (lastOpenedAt < requestedAt) {
-                Log.w(TAG, "Android no abrió la pregunta: se muestra la notificación de respaldo")
+                Log.w(TAG, "Android no abrió la pregunta: se muestra la notificación de respaldo"); Registro.evento("CODELOCK", "aviso", "detalle" to "Android no abrió la pregunta: se muestra la notificación de respaldo")
                 Notifications.showQuestionPrompt(context)
             }
         }, CHECK_DELAY_MS)
@@ -80,13 +81,13 @@ class QuestionLauncher @Inject constructor(
             PixelFormat.TRANSLUCENT,
         )
         val anchored = runCatching { windowManager.addView(anchor, params) }
-            .onFailure { Log.w(TAG, "No se pudo poner la ventana ancla", it) }
+            .onFailure { Log.w(TAG, "No se pudo poner la ventana ancla", it); Registro.error("CODELOCK", it, "detalle" to "No se pudo poner la ventana ancla") }
             .isSuccess
 
         main.postDelayed({
             runCatching { context.startActivity(QuestionActivity.intent(context)) }
-                .onSuccess { Log.i(TAG, "Pregunta solicitada (ancla=$anchored)") }
-                .onFailure { Log.w(TAG, "No se pudo abrir la pregunta", it) }
+                .onSuccess { Log.i(TAG, "Pregunta solicitada (ancla=$anchored)"); Registro.evento("CODELOCK", "info", "detalle" to "Pregunta solicitada (ancla=$anchored)") }
+                .onFailure { Log.w(TAG, "No se pudo abrir la pregunta", it); Registro.error("CODELOCK", it, "detalle" to "No se pudo abrir la pregunta") }
             main.postDelayed({
                 if (anchored) runCatching { windowManager.removeView(anchor) }
             }, REMOVE_ANCHOR_MS)

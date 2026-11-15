@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mantener presionado el ícono de la app → «Enviar registro». -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="enviar_registro"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/registro_atajo_corto"
+        android:shortcutLongLabel="@string/registro_atajo_largo">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.codelock.app"
+            android:targetClass="com.codelock.app.registro.EnviarRegistroActivity" />
+    </shortcut>
+</shortcuts>

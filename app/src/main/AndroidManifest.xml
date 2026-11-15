@@ -27,6 +27,10 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- Mantener presionado el ícono → «Enviar registro». -->
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/atajos_registro" />
         </activity>
 
         <!-- Pantalla de la pregunta: tarea propia y fuera de recientes -->
@@ -54,5 +58,19 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
+
+        <!-- Registro (log) de la app: arranca solo con el proceso; se comparte desde el atajo del ícono. -->
+        <provider
+            android:name="com.codelock.app.registro.RegistroInicio"
+            android:authorities="${applicationId}.registro"
+            android:exported="false"
+            android:initOrder="1000" />
+        <activity
+            android:name="com.codelock.app.registro.EnviarRegistroActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 </manifest>

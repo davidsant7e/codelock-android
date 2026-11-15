@@ -14,6 +14,7 @@ import android.os.Looper
 import android.util.Log
 import androidx.core.app.ServiceCompat
 import androidx.core.content.ContextCompat
+import com.codelock.app.registro.Registro
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -39,7 +40,7 @@ class UnlockService : Service() {
 
     private val unlockReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            Log.i(TAG, "Aviso recibido: ${intent.action}")
+            Log.i(TAG, "Aviso recibido: ${intent.action}"); Registro.evento("CODELOCK", "info", "detalle" to "Aviso recibido: ${intent.action}")
             when (intent.action) {
                 Intent.ACTION_USER_PRESENT -> launcher.onUnlock()
                 Intent.ACTION_SCREEN_ON -> {
@@ -47,7 +48,7 @@ class UnlockService : Service() {
                     main.postDelayed({
                         val keyguard = getSystemService(KeyguardManager::class.java)
                         if (keyguard?.isKeyguardLocked == false) {
-                            Log.i(TAG, "Pantalla encendida sin bloqueo: cuenta como desbloqueo")
+                            Log.i(TAG, "Pantalla encendida sin bloqueo: cuenta como desbloqueo"); Registro.evento("CODELOCK", "info", "detalle" to "Pantalla encendida sin bloqueo: cuenta como desbloqueo")
                             launcher.onUnlock()
                         }
                     }, SCREEN_ON_CHECK_MS)
@@ -72,7 +73,7 @@ class UnlockService : Service() {
         }
         if (started.isFailure) {
             // Android puede negar el arranque desde segundo plano; se reintenta al abrir la app.
-            Log.w(TAG, "No se pudo iniciar el servicio", started.exceptionOrNull())
+            Log.w(TAG, "No se pudo iniciar el servicio", started.exceptionOrNull()); Registro.error("CODELOCK", started.exceptionOrNull(), "detalle" to "No se pudo iniciar el servicio")
             stopSelf()
             return
         }
@@ -84,7 +85,7 @@ class UnlockService : Service() {
         // y evita que algunas versiones de Android los filtren.
         ContextCompat.registerReceiver(this, unlockReceiver, filter, ContextCompat.RECEIVER_EXPORTED)
         registered = true
-        Log.i(TAG, "Servicio iniciado: esperando desbloqueos")
+        Log.i(TAG, "Servicio iniciado: esperando desbloqueos"); Registro.evento("CODELOCK", "info", "detalle" to "Servicio iniciado: esperando desbloqueos")
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int = START_STICKY
@@ -93,7 +94,7 @@ class UnlockService : Service() {
         main.removeCallbacksAndMessages(null)
         if (registered) unregisterReceiver(unlockReceiver)
         registered = false
-        Log.i(TAG, "Servicio detenido")
+        Log.i(TAG, "Servicio detenido"); Registro.evento("CODELOCK", "info", "detalle" to "Servicio detenido")
         super.onDestroy()
     }
 
@@ -106,7 +107,7 @@ class UnlockService : Service() {
         fun start(context: Context) {
             runCatching {
                 ContextCompat.startForegroundService(context, Intent(context, UnlockService::class.java))
-            }.onFailure { Log.w(TAG, "No se pudo iniciar el servicio", it) }
+            }.onFailure { Log.w(TAG, "No se pudo iniciar el servicio", it); Registro.error("CODELOCK", it, "detalle" to "No se pudo iniciar el servicio") }
         }
 
         fun stop(context: Context) {
