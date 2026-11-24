@@ -116,6 +116,14 @@ Cada pregunta dice de qué capítulo sale («Programación desde cero · Cap. 07
 aplica, enlaza la documentación oficial de Python o Git. Es el mismo archivo que usa
 CodeLock para Windows en `preguntas/`.
 
+### Banco «Pruebas de software desde cero»
+
+`assets/pruebas-desde-cero.json`: 126 preguntas del libro *Pruebas de software desde cero*
+(5 o 6 por capítulo, 24 capítulos) en tres temas: **Nivel 1 Fundamentos**, **Nivel 2
+Automatización** y **Nivel 3 Profundización**. Cada pregunta cita su capítulo («Pruebas desde
+cero · Cap. 14 …») y, cuando aplica, enlaza la documentación oficial (pytest, Playwright,
+Maestro, OWASP, WCAG, AWS CDK…). Es el mismo archivo que usa CodeLock para Windows en `preguntas/`.
+
 ## Pruebas automáticas
 
 ```bash

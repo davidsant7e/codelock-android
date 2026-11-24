@@ -1,0 +1,1724 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "name": "Pruebas desde cero · Nivel 1 Fundamentos",
+      "questions": [
+        {
+          "statement": "¿Qué tres partes tiene toda prueba?",
+          "options": [
+            "Requisito, diseño y despliegue",
+            "Código, compilador y servidor",
+            "Usuario, clave y sesión",
+            "Escenario, acción y comparación con lo esperado"
+          ],
+          "correct": 3,
+          "explanation": "Sin resultado esperado no hay prueba, solo uso del sistema.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 01 Qué significa probar"
+        },
+        {
+          "statement": "Una clienta paga 1.200 cuando debía pagar 1.150. Eso es…",
+          "options": [
+            "Una falla",
+            "Un error",
+            "Un defecto",
+            "Una validación"
+          ],
+          "correct": 0,
+          "explanation": "La falla es lo observable; el defecto está en el producto y el error es la equivocación humana.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 01 Qué significa probar"
+        },
+        {
+          "statement": "«¿Construimos lo que se necesitaba?» es la pregunta de…",
+          "options": [
+            "La validación",
+            "La cobertura",
+            "La regresión",
+            "La verificación"
+          ],
+          "correct": 0,
+          "explanation": "Verificar compara con lo especificado; validar, con la necesidad real.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 01 Qué significa probar"
+        },
+        {
+          "statement": "¿Qué afirma el primer principio de las pruebas?",
+          "options": [
+            "Probar todo es posible con automatización",
+            "Los defectos se reparten uniformemente",
+            "Las pruebas muestran presencia de defectos, no su ausencia",
+            "Probar tarde es más barato"
+          ],
+          "correct": 2,
+          "explanation": "Ninguna batería demuestra que no queda nada.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 01 Qué significa probar"
+        },
+        {
+          "statement": "Repetir siempre las mismas pruebas deja de encontrar defectos nuevos. ¿Cómo se llama?",
+          "options": [
+            "Agrupación de defectos",
+            "Desplazamiento a la izquierda",
+            "Paradoja del pesticida",
+            "Falacia de la ausencia de errores"
+          ],
+          "correct": 2,
+          "explanation": "Las pruebas deben revisarse y variarse.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 01 Qué significa probar"
+        },
+        {
+          "statement": "En Dado–Cuando–Entonces, ¿qué debe tener el «Cuando»?",
+          "options": [
+            "Varias acciones encadenadas",
+            "Los datos de la base",
+            "Una sola acción",
+            "El resultado esperado"
+          ],
+          "correct": 2,
+          "explanation": "Una acción por escenario permite saber qué la provocó.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 02 Requisitos y criterios de aceptación"
+        },
+        {
+          "statement": "Carrito de 60.000 con cupón del 20 %. ¿Cuánto paga si el umbral de envío gratis (50.000) se mide después del descuento?",
+          "options": [
+            "50.000",
+            "48.000",
+            "56.000",
+            "60.000"
+          ],
+          "correct": 2,
+          "explanation": "48.000 no alcanza el umbral: 48.000 + 8.000 de envío = 56.000.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 02 Requisitos y criterios de aceptación"
+        },
+        {
+          "statement": "¿Qué es la trazabilidad?",
+          "options": [
+            "Medir el tiempo de respuesta",
+            "Registrar la IP de cada usuario",
+            "Conectar requisitos con pruebas y resultados",
+            "Guardar trazas de Playwright"
+          ],
+          "correct": 2,
+          "explanation": "Permite saber qué pruebas revisar cuando cambia un requisito.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 02 Requisitos y criterios de aceptación"
+        },
+        {
+          "statement": "¿Cuál criterio de aceptación es verificable?",
+          "options": [
+            "La búsqueda debe ser intuitiva",
+            "El total responde en menos de 300 ms para el 95 % de solicitudes",
+            "La app debe ser rápida",
+            "El diseño debe gustar"
+          ],
+          "correct": 1,
+          "explanation": "Las palabras vagas se traducen a algo medible.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 02 Requisitos y criterios de aceptación"
+        },
+        {
+          "statement": "Para «cantidad entre 1 y 99», ¿qué valores prueba el análisis de límites con dos valores por borde?",
+          "options": [
+            "50 solamente",
+            "0, 1, 99 y 100",
+            "-1, 50 y 101",
+            "1 y 99"
+          ],
+          "correct": 1,
+          "explanation": "Se prueba justo en el borde y al otro lado de cada borde.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 03 Particiones y valores límite"
+        },
+        {
+          "statement": "¿Por qué las clases inválidas se prueban una por caso?",
+          "options": [
+            "Porque la herramienta lo exige",
+            "Para saber cuál provocó el rechazo",
+            "Para ahorrar datos",
+            "Porque son pocas"
+          ],
+          "correct": 1,
+          "explanation": "Con dos inválidos juntos no sabes cuál causó el rechazo.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 03 Particiones y valores límite"
+        },
+        {
+          "statement": "Envío gratis desde 50.000. ¿Qué tres valores prueban el umbral?",
+          "options": [
+            "45.000, 50.000 y 55.000",
+            "49.999, 50.000 y 50.001",
+            "50.000 solamente",
+            "0, 50.000 y 100.000"
+          ],
+          "correct": 1,
+          "explanation": "Justo debajo, en el borde y justo encima.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 03 Particiones y valores límite"
+        },
+        {
+          "statement": "En la analogía de la atracción con mínimo 1,20 m, ¿qué representa un niño de 1,50 m?",
+          "options": [
+            "Un error de medición",
+            "Un representante de la clase válida",
+            "Un valor límite",
+            "Un caso inválido"
+          ],
+          "correct": 1,
+          "explanation": "Representa a todos los altos; los de 1,19, 1,20 y 1,21 prueban la regla.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 03 Particiones y valores límite"
+        },
+        {
+          "statement": "¿Qué límite NO es numérico?",
+          "options": [
+            "Último día de vigencia de un cupón a las 23:59",
+            "Cantidad 99",
+            "Precio 0",
+            "Porcentaje 50"
+          ],
+          "correct": 0,
+          "explanation": "Fechas, longitudes y colecciones también tienen bordes.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 03 Particiones y valores límite"
+        },
+        {
+          "statement": "Tres condiciones de sí/no. ¿Cuántas reglas tiene la tabla de decisión completa?",
+          "options": [
+            "8",
+            "3",
+            "6",
+            "9"
+          ],
+          "correct": 0,
+          "explanation": "2³ = 8 combinaciones.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 04 Tablas de decisión, estados y combinaciones"
+        },
+        {
+          "statement": "¿Qué transiciones suelen encontrar más defectos?",
+          "options": [
+            "Las inválidas",
+            "Las del estado inicial",
+            "Las válidas",
+            "Ninguna en particular"
+          ],
+          "correct": 0,
+          "explanation": "Las inválidas son las que el equipo olvidó controlar.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 04 Tablas de decisión, estados y combinaciones"
+        },
+        {
+          "statement": "Con 3 sistemas, 3 idiomas, 4 medios de pago y 2 temas, ¿cuántos casos necesitó el algoritmo por pares del libro?",
+          "options": [
+            "72",
+            "24",
+            "12",
+            "4"
+          ],
+          "correct": 2,
+          "explanation": "El algoritmo voraz cubrió todas las parejas con 12 casos en lugar de 72.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 04 Tablas de decisión, estados y combinaciones"
+        },
+        {
+          "statement": "Un objeto que pasa por etapas pide…",
+          "options": [
+            "Particiones",
+            "Transición de estados",
+            "Pruebas por pares",
+            "Valores límite"
+          ],
+          "correct": 1,
+          "explanation": "Creado, pagado, enviado, entregado: una máquina de estados.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 04 Tablas de decisión, estados y combinaciones"
+        },
+        {
+          "statement": "Según la tabla de envío, una socia rural con compra de 80.000…",
+          "options": [
+            "Paga envío",
+            "No puede comprar",
+            "No paga envío",
+            "Recibe descuento extra"
+          ],
+          "correct": 0,
+          "explanation": "Rural nunca tiene envío gratis; la tabla revela si el negocio lo quería así.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 04 Tablas de decisión, estados y combinaciones"
+        },
+        {
+          "statement": "¿Qué combina la prueba exploratoria?",
+          "options": [
+            "Pruebas de carga y seguridad",
+            "Solo ejecución de guiones",
+            "Diseño y despliegue",
+            "Aprender, diseñar y ejecutar al mismo tiempo"
+          ],
+          "correct": 3,
+          "explanation": "No es improvisar: tiene misión, tiempo y registro.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 05 Pruebas exploratorias"
+        },
+        {
+          "statement": "¿Cuál es la fórmula de una misión exploratoria?",
+          "options": [
+            "Reproducir defectos viejos",
+            "Probar todo lo posible",
+            "Explorar objetivo con recursos para descubrir información",
+            "Ejecutar casos del 1 al 50"
+          ],
+          "correct": 2,
+          "explanation": "La fórmula mantiene el foco de la sesión.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 05 Pruebas exploratorias"
+        },
+        {
+          "statement": "«Cero, uno, muchos» es…",
+          "options": [
+            "Una heurística",
+            "Un nivel de prueba",
+            "Un criterio de salida",
+            "Un oráculo"
+          ],
+          "correct": 0,
+          "explanation": "Es un atajo para tener ideas: vacío, uno, cien.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 05 Pruebas exploratorias"
+        },
+        {
+          "statement": "El total del carrito difiere del recibo. ¿Qué oráculo lo revela sin requisito escrito?",
+          "options": [
+            "Una versión anterior",
+            "La documentación",
+            "Una norma legal",
+            "La coherencia del producto consigo mismo"
+          ],
+          "correct": 3,
+          "explanation": "Dos partes del mismo producto no pueden contradecirse.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 05 Pruebas exploratorias"
+        },
+        {
+          "statement": "¿Qué se hace con un hallazgo exploratorio confirmado?",
+          "options": [
+            "Se ignora si no tiene requisito",
+            "Se borra al cerrar la sesión",
+            "Se recuerda",
+            "Se convierte en una prueba repetible"
+          ],
+          "correct": 3,
+          "explanation": "Así la exploración alimenta la regresión.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 05 Pruebas exploratorias"
+        },
+        {
+          "statement": "¿Qué describe el título de un reporte de defecto?",
+          "options": [
+            "La prioridad",
+            "Quién lo causó",
+            "El síntoma y dónde ocurre",
+            "La causa supuesta"
+          ],
+          "correct": 2,
+          "explanation": "Ejemplo: «El total cobrado ignora el cupón al editar la cantidad».",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 06 Defectos y evidencias"
+        },
+        {
+          "statement": "Un error de ortografía en el logo de la portada es…",
+          "options": [
+            "No es un defecto",
+            "Severidad baja, prioridad alta",
+            "Severidad y prioridad altas",
+            "Severidad alta, prioridad baja"
+          ],
+          "correct": 1,
+          "explanation": "Causa poco daño, pero el negocio lo quiere corregido ya.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 06 Defectos y evidencias"
+        },
+        {
+          "statement": "¿Qué NO debe aparecer en una evidencia?",
+          "options": [
+            "El identificador del caso",
+            "La captura de pantalla",
+            "Fecha y versión",
+            "Tokens o datos personales reales"
+          ],
+          "correct": 3,
+          "explanation": "Se usan datos de prueba y se oculta lo sensible.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 06 Defectos y evidencias"
+        },
+        {
+          "statement": "En un informe honesto, «bloqueado» y «sin probar»…",
+          "options": [
+            "Se cuentan como aprobados",
+            "Se cuentan como fallados",
+            "Se declaran con su razón",
+            "Se omiten para no alarmar"
+          ],
+          "correct": 2,
+          "explanation": "Ocultarlos es el verdadero fracaso.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 06 Defectos y evidencias"
+        },
+        {
+          "statement": "Antes de reportar un fallo de una prueba automática conviene…",
+          "options": [
+            "Reportarlo de inmediato",
+            "Desactivar la prueba",
+            "Reintentarla hasta que pase",
+            "Confirmar que el fallo no está en la prueba"
+          ],
+          "correct": 3,
+          "explanation": "En el libro, un texto fuera de pantalla hacía fallar un flujo de Maestro sin defecto en la app.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 06 Defectos y evidencias"
+        },
+        {
+          "statement": "¿Qué nivel prueba cómo colaboran el código y la base de datos?",
+          "options": [
+            "Componente",
+            "Integración",
+            "Aceptación",
+            "Humo"
+          ],
+          "correct": 1,
+          "explanation": "La integración verifica piezas que colaboran.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 07 Niveles y tipos de pruebas"
+        },
+        {
+          "statement": "¿Qué es el «cono de helado invertido»?",
+          "options": [
+            "Casi todo por la interfaz o a mano, con pocas pruebas debajo",
+            "Una herramienta de carga",
+            "Un tipo de prueba de seguridad",
+            "Muchas unitarias y pocas E2E"
+          ],
+          "correct": 0,
+          "explanation": "Es lo que la pirámide busca evitar.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 07 Niveles y tipos de pruebas"
+        },
+        {
+          "statement": "Un pago correcto que tarda 40 segundos falla una expectativa…",
+          "options": [
+            "Funcional",
+            "Estática",
+            "De confirmación",
+            "No funcional"
+          ],
+          "correct": 3,
+          "explanation": "El rendimiento es no funcional.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 07 Niveles y tipos de pruebas"
+        },
+        {
+          "statement": "¿Qué prueba verifica que lo que funcionaba sigue funcionando tras un cambio?",
+          "options": [
+            "Regresión",
+            "Aceptación",
+            "Humo",
+            "Confirmación"
+          ],
+          "correct": 0,
+          "explanation": "Es la gran candidata a automatizarse.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 07 Niveles y tipos de pruebas"
+        },
+        {
+          "statement": "Revisar un requisito sin ejecutar nada es una prueba…",
+          "options": [
+            "De extremo a extremo",
+            "Estática",
+            "Dinámica",
+            "De carga"
+          ],
+          "correct": 1,
+          "explanation": "Las estáticas examinan sin ejecutar y son baratas.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 07 Niveles y tipos de pruebas"
+        },
+        {
+          "statement": "¿Para qué sirve el criterio de salida del plan?",
+          "options": [
+            "Para acordar antes qué significa «listo»",
+            "Para decidir quién prueba",
+            "Para medir cobertura",
+            "Para elegir la herramienta"
+          ],
+          "correct": 0,
+          "explanation": "Evita discusiones al final.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 08 Plan y matriz de escenarios"
+        },
+        {
+          "statement": "¿Qué valida el ejemplo 08_matriz.py?",
+          "options": [
+            "Que todo pase",
+            "Que la matriz tenga 100 filas",
+            "Que no haya bloqueados",
+            "Que cada escenario tenga técnica y los fallados tengan evidencia"
+          ],
+          "correct": 3,
+          "explanation": "Además genera un resumen honesto.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 08 Plan y matriz de escenarios"
+        },
+        {
+          "statement": "¿Qué formato comparte la matriz del libro con la herramienta El Sol?",
+          "options": [
+            "XML de JUnit",
+            "JSON como sol.json",
+            "YAML de Maestro",
+            "CSV"
+          ],
+          "correct": 1,
+          "explanation": "Una matriz escrita a mano puede abrirse después con la herramienta.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 08 Plan y matriz de escenarios"
+        },
+        {
+          "statement": "En el caso integrador, ¿cuántos cupones se pueden usar por pedido?",
+          "options": [
+            "Ilimitados",
+            "Uno",
+            "Ninguno",
+            "Dos"
+          ],
+          "correct": 1,
+          "explanation": "Regla 3: solo un cupón por pedido.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 08 Plan y matriz de escenarios"
+        },
+        {
+          "statement": "¿Qué va primero al construir la matriz?",
+          "options": [
+            "La exploración",
+            "Automatizar",
+            "El informe",
+            "Las preguntas sobre el requisito"
+          ],
+          "correct": 3,
+          "explanation": "Antes de diseñar, se listan las dudas.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 08 Plan y matriz de escenarios"
+        },
+        {
+          "statement": "Rango válido del porcentaje de un cupón en Mercadito:",
+          "options": [
+            "5 a 50",
+            "10 a 90",
+            "0 a 100",
+            "1 a 50"
+          ],
+          "correct": 3,
+          "explanation": "Por eso los límites son 0, 1, 50 y 51.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 08 Plan y matriz de escenarios"
+        }
+      ]
+    },
+    {
+      "name": "Pruebas desde cero · Nivel 2 Automatización",
+      "questions": [
+        {
+          "statement": "¿Por qué el módulo dominio de Mercadito es fácil de probar?",
+          "options": [
+            "Está escrito en Kotlin",
+            "No abre archivos ni consulta la hora: es puro",
+            "Tiene pocas funciones",
+            "Usa muchas bibliotecas"
+          ],
+          "correct": 1,
+          "explanation": "Sin red, disco ni reloj, las pruebas son rápidas y repetibles.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 09 Unitarias con unittest y pytest",
+          "sourceUrl": "https://docs.pytest.org/"
+        },
+        {
+          "statement": "En unittest, ¿qué hace setUp?",
+          "options": [
+            "Prepara el escenario antes de cada prueba",
+            "Se ejecuta una vez al final",
+            "Instala dependencias",
+            "Genera reportes"
+          ],
+          "correct": 0,
+          "explanation": "Así ninguna prueba depende de otra.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 09 Unitarias con unittest y pytest",
+          "sourceUrl": "https://docs.pytest.org/"
+        },
+        {
+          "statement": "¿Qué es una fixture en pytest?",
+          "options": [
+            "Un error de configuración",
+            "Un tipo de aserción",
+            "Una función que prepara algo y se inyecta por nombre de parámetro",
+            "Un plugin de cobertura"
+          ],
+          "correct": 2,
+          "explanation": "Ejemplo: tmp_path o una fixture propia carrito().",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 09 Unitarias con unittest y pytest",
+          "sourceUrl": "https://docs.pytest.org/"
+        },
+        {
+          "statement": "¿Qué hace @pytest.mark.parametrize?",
+          "options": [
+            "Omite la prueba",
+            "Ejecuta la prueba en paralelo",
+            "Mide el tiempo",
+            "Ejecuta la misma prueba con cada fila de una tabla"
+          ],
+          "correct": 3,
+          "explanation": "Las 8 reglas de la tabla de decisión se volvieron 8 casos R1–R8.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 09 Unitarias con unittest y pytest",
+          "sourceUrl": "https://docs.pytest.org/"
+        },
+        {
+          "statement": "¿Cuál es un error común en pruebas unitarias?",
+          "options": [
+            "Probar una sola idea",
+            "Copiar el cálculo del código dentro de la prueba",
+            "Nombres que describen la regla",
+            "Usar valores límite"
+          ],
+          "correct": 1,
+          "explanation": "Si el código está mal, la prueba copiada también.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 09 Unitarias con unittest y pytest",
+          "sourceUrl": "https://docs.pytest.org/"
+        },
+        {
+          "statement": "En TDD, ¿qué se escribe primero?",
+          "options": [
+            "El informe",
+            "Una prueba que falla",
+            "La documentación",
+            "El código"
+          ],
+          "correct": 1,
+          "explanation": "Rojo, verde, refactorizar.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 09 Unitarias con unittest y pytest",
+          "sourceUrl": "https://docs.pytest.org/"
+        },
+        {
+          "statement": "Un reloj que siempre devuelve la misma hora es un…",
+          "options": [
+            "Fake",
+            "Stub",
+            "Dummy",
+            "Spy"
+          ],
+          "correct": 1,
+          "explanation": "Un stub devuelve respuestas fijas.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 10 Dobles de prueba y datos",
+          "sourceUrl": "https://docs.python.org/3/library/unittest.mock.html"
+        },
+        {
+          "statement": "PedidosEnMemoria es un…",
+          "options": [
+            "Dummy",
+            "Fake",
+            "Mock",
+            "Stub"
+          ],
+          "correct": 1,
+          "explanation": "Implementación real pero simplificada.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 10 Dobles de prueba y datos",
+          "sourceUrl": "https://docs.python.org/3/library/unittest.mock.html"
+        },
+        {
+          "statement": "¿Qué reveló simular la falla del notificador?",
+          "options": [
+            "Que el correo se envía dos veces",
+            "Que no se puede crear el pedido",
+            "Que el pedido ya quedó guardado cuando el correo falla",
+            "Que el reloj falla"
+          ],
+          "correct": 2,
+          "explanation": "Las fallas simuladas exponen decisiones de diseño ocultas.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 10 Dobles de prueba y datos",
+          "sourceUrl": "https://docs.python.org/3/library/unittest.mock.html"
+        },
+        {
+          "statement": "¿Por qué las fechas de los cupones de prueba son relativas a hoy?",
+          "options": [
+            "Por rendimiento",
+            "Porque SQLite lo exige",
+            "Para que no caduquen las pruebas",
+            "Para usar menos memoria"
+          ],
+          "correct": 2,
+          "explanation": "Fechas fijas dejan de servir el mes siguiente.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 10 Dobles de prueba y datos",
+          "sourceUrl": "https://docs.python.org/3/library/unittest.mock.html"
+        },
+        {
+          "statement": "¿Qué dominio de correo usan los datos de prueba?",
+          "options": [
+            "example.test",
+            "localhost",
+            "mercadito.co",
+            "gmail.com"
+          ],
+          "correct": 0,
+          "explanation": "Dominios reservados: nunca datos personales reales.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 10 Dobles de prueba y datos",
+          "sourceUrl": "https://docs.python.org/3/library/unittest.mock.html"
+        },
+        {
+          "statement": "¿Cuándo engaña un doble?",
+          "options": [
+            "Cuando no se parece al colaborador real",
+            "Nunca",
+            "Cuando es rápido",
+            "Cuando se usa en unitarias"
+          ],
+          "correct": 0,
+          "explanation": "Por eso se conservan algunas pruebas de integración.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 10 Dobles de prueba y datos",
+          "sourceUrl": "https://docs.python.org/3/library/unittest.mock.html"
+        },
+        {
+          "statement": "Un cupón vencido al calcular el total debe responder…",
+          "options": [
+            "404",
+            "500",
+            "200",
+            "422"
+          ],
+          "correct": 3,
+          "explanation": "La solicitud está bien formada pero una regla de negocio la rechaza.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 11 APIs y contratos",
+          "sourceUrl": "https://json-schema.org/"
+        },
+        {
+          "statement": "Un JSON roto en el cuerpo debe responder…",
+          "options": [
+            "422",
+            "415",
+            "400",
+            "500"
+          ],
+          "correct": 2,
+          "explanation": "Un 500 por un dato del cliente es un defecto.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 11 APIs y contratos",
+          "sourceUrl": "https://json-schema.org/"
+        },
+        {
+          "statement": "¿Por qué el servidor de pruebas escucha en el puerto 0?",
+          "options": [
+            "Es el más rápido",
+            "Para usar HTTPS",
+            "Es obligatorio en HTTP",
+            "El sistema asigna un puerto libre"
+          ],
+          "correct": 3,
+          "explanation": "Evita choques con otros procesos o pruebas en paralelo.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 11 APIs y contratos",
+          "sourceUrl": "https://json-schema.org/"
+        },
+        {
+          "statement": "Si alguien renombra envio a costoEnvio, el validador informa…",
+          "options": [
+            "Falta el campo obligatorio y apareció uno no declarado",
+            "Error 500",
+            "Nada",
+            "Que el tipo cambió"
+          ],
+          "correct": 0,
+          "explanation": "El contrato dice exactamente qué se rompió.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 11 APIs y contratos",
+          "sourceUrl": "https://json-schema.org/"
+        },
+        {
+          "statement": "En las pruebas de contrato dirigidas por el consumidor…",
+          "options": [
+            "El proveedor adivina qué se usa",
+            "Solo se prueban códigos 200",
+            "El consumidor publica lo que realmente usa",
+            "Se despliegan todos los servicios"
+          ],
+          "correct": 2,
+          "explanation": "Pact es la herramienta más conocida.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 11 APIs y contratos",
+          "sourceUrl": "https://json-schema.org/"
+        },
+        {
+          "statement": "¿Qué código indica tipo de contenido no soportado?",
+          "options": [
+            "413",
+            "415",
+            "401",
+            "409"
+          ],
+          "correct": 1,
+          "explanation": "415 Unsupported Media Type.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 11 APIs y contratos",
+          "sourceUrl": "https://json-schema.org/"
+        },
+        {
+          "statement": "¿Qué entrega la fixture tmp_path?",
+          "options": [
+            "Una carpeta temporal distinta por prueba",
+            "Un puerto libre",
+            "Un reloj falso",
+            "Una base compartida"
+          ],
+          "correct": 0,
+          "explanation": "Cada prueba crea su propia base vacía.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 12 Integración con bases de datos"
+        },
+        {
+          "statement": "Cancelar con reembolso falla al insertar el reembolso. Con transacción, el pedido…",
+          "options": [
+            "Queda cancelado sin reembolso",
+            "Queda en estado desconocido",
+            "Se borra",
+            "Sigue pagado"
+          ],
+          "correct": 3,
+          "explanation": "Todo o nada: la base revierte el cambio de estado.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 12 Integración con bases de datos"
+        },
+        {
+          "statement": "¿Por qué probar las restricciones CHECK si el código ya valida?",
+          "options": [
+            "Para cumplir cobertura",
+            "No hace falta",
+            "Para medir rendimiento",
+            "La base es la última defensa"
+          ],
+          "correct": 3,
+          "explanation": "Si el código deja pasar algo, la base debe rechazarlo.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 12 Integración con bases de datos"
+        },
+        {
+          "statement": "¿Qué se verifica al probar una migración?",
+          "options": [
+            "Que los datos de la versión anterior se conservan",
+            "Que funcione en una base vacía",
+            "Que no tenga índices",
+            "Que sea rápida"
+          ],
+          "correct": 0,
+          "explanation": "Un cambio inocuo en base vacía puede destruir datos reales.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 12 Integración con bases de datos"
+        },
+        {
+          "statement": "Error común en pruebas con base de datos:",
+          "options": [
+            "Probar tildes y eñes",
+            "Compartir una base y depender del orden",
+            "Usar una base por prueba",
+            "Probar transacciones"
+          ],
+          "correct": 1,
+          "explanation": "Rompe la independencia de las pruebas.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 12 Integración con bases de datos"
+        },
+        {
+          "statement": "¿Qué localizador recomienda Playwright para un botón?",
+          "options": [
+            "XPath absoluto",
+            "get_by_role con nombre",
+            "CSS nth-child",
+            "La posición en píxeles"
+          ],
+          "correct": 1,
+          "explanation": "Localizar como una persona o un lector de pantalla.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 13 Web con Playwright",
+          "sourceUrl": "https://playwright.dev/python/"
+        },
+        {
+          "statement": "¿Qué reemplaza al sleep en Playwright?",
+          "options": [
+            "Aserciones que reintentan como expect(...).to_have_text",
+            "Un bucle infinito",
+            "Reiniciar el navegador",
+            "Aumentar el timeout global"
+          ],
+          "correct": 0,
+          "explanation": "Esperan la condición hasta un tiempo límite.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 13 Web con Playwright",
+          "sourceUrl": "https://playwright.dev/python/"
+        },
+        {
+          "statement": "¿Por qué un contexto nuevo por prueba?",
+          "options": [
+            "Aislamiento: sin cookies ni datos de la anterior",
+            "Es más lento",
+            "Para grabar video",
+            "Para usar otro navegador"
+          ],
+          "correct": 0,
+          "explanation": "Abrir el navegador cuesta; abrir un contexto es barato.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 13 Web con Playwright",
+          "sourceUrl": "https://playwright.dev/python/"
+        },
+        {
+          "statement": "¿Qué guarda la traza de Playwright?",
+          "options": [
+            "El código fuente",
+            "Las contraseñas",
+            "Solo el resultado",
+            "Cada acción con capturas y estado de la página"
+          ],
+          "correct": 3,
+          "explanation": "Se abre con playwright show-trace.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 13 Web con Playwright",
+          "sourceUrl": "https://playwright.dev/python/"
+        },
+        {
+          "statement": "Si get_by_label no encuentra un campo, a menudo indica…",
+          "options": [
+            "Que falta la etiqueta: también un defecto de accesibilidad",
+            "Un error de Python",
+            "Que el navegador no es compatible",
+            "Un problema de red"
+          ],
+          "correct": 0,
+          "explanation": "La prueba empuja hacia un HTML mejor.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 13 Web con Playwright",
+          "sourceUrl": "https://playwright.dev/python/"
+        },
+        {
+          "statement": "¿Dónde corren las pruebas unitarias JUnit de Android?",
+          "options": [
+            "En el celular",
+            "En la nube",
+            "En la JVM del computador",
+            "En el emulador obligatoriamente"
+          ],
+          "correct": 2,
+          "explanation": "Milisegundos, sin celular.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 14 Android con Maestro y JUnit",
+          "sourceUrl": "https://maestro.mobile.dev/"
+        },
+        {
+          "statement": "El flujo E04 de Maestro falló con «AudioNovel is visible». ¿Causa?",
+          "options": [
+            "La app no tenía la carta",
+            "Maestro no estaba instalado",
+            "El celular estaba bloqueado",
+            "La carta estaba fuera de pantalla"
+          ],
+          "correct": 3,
+          "explanation": "Se arregló con scrollUntilVisible y pasó en 22 s.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 14 Android con Maestro y JUnit",
+          "sourceUrl": "https://maestro.mobile.dev/"
+        },
+        {
+          "statement": "¿Para qué sirve --device en Maestro?",
+          "options": [
+            "Grabar video",
+            "Elegir el dispositivo cuando hay varios conectados",
+            "Instalar la app",
+            "Cambiar el idioma"
+          ],
+          "correct": 1,
+          "explanation": "En el proyecto había un celular de pruebas y otro usado como módem.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 14 Android con Maestro y JUnit",
+          "sourceUrl": "https://maestro.mobile.dev/"
+        },
+        {
+          "statement": "¿Qué reemplaza a las pausas fijas en Maestro?",
+          "options": [
+            "back",
+            "waitForAnimationToEnd",
+            "launchApp",
+            "takeScreenshot"
+          ],
+          "correct": 1,
+          "explanation": "Esperar condiciones, no tiempos.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 14 Android con Maestro y JUnit",
+          "sourceUrl": "https://maestro.mobile.dev/"
+        },
+        {
+          "statement": "¿Dónde conviene poner la lógica que no depende de Android?",
+          "options": [
+            "En clases Kotlin puras",
+            "En los recursos XML",
+            "En las Activity",
+            "En el manifiesto"
+          ],
+          "correct": 0,
+          "explanation": "Así se prueba en la JVM sin celular.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 14 Android con Maestro y JUnit",
+          "sourceUrl": "https://maestro.mobile.dev/"
+        },
+        {
+          "statement": "¿Qué mide la cobertura?",
+          "options": [
+            "Qué se verificó",
+            "La velocidad",
+            "Qué parte del código se ejecutó",
+            "Cuántos defectos hay"
+          ],
+          "correct": 2,
+          "explanation": "Ejecutar una línea no es verificarla.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 15 Cobertura y mutación",
+          "sourceUrl": "https://coverage.readthedocs.io/"
+        },
+        {
+          "statement": "Un mutante «sobrevive» cuando…",
+          "options": [
+            "Alguna prueba falla",
+            "Todas las pruebas pasan con el código mutado",
+            "No compila",
+            "Tarda mucho"
+          ],
+          "correct": 1,
+          "explanation": "Señala un comportamiento que ninguna prueba vigila.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 15 Cobertura y mutación",
+          "sourceUrl": "https://coverage.readthedocs.io/"
+        },
+        {
+          "statement": "¿Qué puntaje de mutación tuvo Mercadito antes del refuerzo?",
+          "options": [
+            "50 %",
+            "100 %",
+            "66 %",
+            "88 %"
+          ],
+          "correct": 2,
+          "explanation": "12 de 18 mutantes eliminados.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 15 Cobertura y mutación",
+          "sourceUrl": "https://coverage.readthedocs.io/"
+        },
+        {
+          "statement": "¿Qué tenían en común los 6 mutantes sobrevivientes?",
+          "options": [
+            "Eran equivalentes",
+            "Eran sumas",
+            "Estaban en la API",
+            "Eran valores límite sin probar"
+          ],
+          "correct": 3,
+          "explanation": "Por ejemplo, los porcentajes válidos 1 y 50.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 15 Cobertura y mutación",
+          "sourceUrl": "https://coverage.readthedocs.io/"
+        },
+        {
+          "statement": "¿Qué causaba resultados inestables en el mutador?",
+          "options": [
+            "El reloj",
+            "La caché de bytecode (.pyc)",
+            "El azar",
+            "La red"
+          ],
+          "correct": 1,
+          "explanation": "Se corrigió con PYTHONDONTWRITEBYTECODE=1 y borrando __pycache__.",
+          "difficulty": 3,
+          "source": "Pruebas desde cero · Cap. 15 Cobertura y mutación",
+          "sourceUrl": "https://coverage.readthedocs.io/"
+        },
+        {
+          "statement": "Un mutante que no cambia el comportamiento se llama…",
+          "options": [
+            "Equivalente",
+            "Eliminado",
+            "Inestable",
+            "Sobreviviente"
+          ],
+          "correct": 0,
+          "explanation": "No puede eliminarse; se revisa y se acepta.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 15 Cobertura y mutación",
+          "sourceUrl": "https://coverage.readthedocs.io/"
+        },
+        {
+          "statement": "¿Por qué la etapa web depende de la rápida?",
+          "options": [
+            "Si lo barato falla, no se gasta en lo caro",
+            "Porque Playwright lo exige",
+            "Para usar menos disco",
+            "Por orden alfabético"
+          ],
+          "correct": 0,
+          "explanation": "Ordenar por costo da retroalimentación en segundos.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 16 Integración continua",
+          "sourceUrl": "https://docs.github.com/actions"
+        },
+        {
+          "statement": "¿Para qué sirve --junitxml en pytest?",
+          "options": [
+            "Para generar un XML que Jenkins muestra prueba por prueba",
+            "Para ejecutar Java",
+            "Para paralelizar",
+            "Para medir cobertura"
+          ],
+          "correct": 0,
+          "explanation": "Incluye duración e historial.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 16 Integración continua",
+          "sourceUrl": "https://docs.github.com/actions"
+        },
+        {
+          "statement": "¿Dónde van los secretos en CI?",
+          "options": [
+            "En el README",
+            "En los registros",
+            "En el YAML",
+            "En el almacén de secretos del servidor"
+          ],
+          "correct": 3,
+          "explanation": "Nunca en el código ni en los registros.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 16 Integración continua",
+          "sourceUrl": "https://docs.github.com/actions"
+        },
+        {
+          "statement": "¿Qué hace if: failure() con upload-artifact?",
+          "options": [
+            "Sube las trazas solo si algo falla",
+            "Sube artefactos siempre",
+            "Reintenta la prueba",
+            "Cancela el flujo"
+          ],
+          "correct": 0,
+          "explanation": "Evidencia para quien revisa, sin repetir la ejecución.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 16 Integración continua",
+          "sourceUrl": "https://docs.github.com/actions"
+        },
+        {
+          "statement": "Ante una prueba roja en main, lo correcto es…",
+          "options": [
+            "Desactivarla",
+            "Reintentar hasta que pase",
+            "Arreglarla como prioridad",
+            "Ignorarla hasta el viernes"
+          ],
+          "correct": 2,
+          "explanation": "Una prueba roja ignorada enseña a ignorar todas.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 16 Integración continua",
+          "sourceUrl": "https://docs.github.com/actions"
+        }
+      ]
+    },
+    {
+      "name": "Pruebas desde cero · Nivel 3 Profundización",
+      "questions": [
+        {
+          "statement": "¿Qué es una propiedad?",
+          "options": [
+            "Un atributo de clase",
+            "Una configuración",
+            "Una afirmación que debe cumplirse para cualquier entrada",
+            "Un caso con datos fijos"
+          ],
+          "correct": 2,
+          "explanation": "La herramienta busca entradas que la contradigan.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 17 Propiedades y fuzzing",
+          "sourceUrl": "https://hypothesis.readthedocs.io/"
+        },
+        {
+          "statement": "¿A qué contraejemplo se encogió el defecto del signo?",
+          "options": [
+            "-1",
+            "1",
+            "-734.211.098",
+            "0"
+          ],
+          "correct": 0,
+          "explanation": "-1 cuenta la historia: cualquier negativo falla.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 17 Propiedades y fuzzing",
+          "sourceUrl": "https://hypothesis.readthedocs.io/"
+        },
+        {
+          "statement": "normalizar(normalizar(x)) == normalizar(x) es una propiedad de…",
+          "options": [
+            "Idempotencia",
+            "Ida y vuelta",
+            "Rendimiento",
+            "Oráculo"
+          ],
+          "correct": 0,
+          "explanation": "Aplicarla dos veces da lo mismo que una.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 17 Propiedades y fuzzing",
+          "sourceUrl": "https://hypothesis.readthedocs.io/"
+        },
+        {
+          "statement": "¿Por qué el azar en pruebas debe tener semilla fija?",
+          "options": [
+            "Para repetir exactamente el mismo fallo",
+            "Es más rápido",
+            "Para generar más casos",
+            "Lo exige Python"
+          ],
+          "correct": 0,
+          "explanation": "Sin semilla, la prueba es inestable.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 17 Propiedades y fuzzing",
+          "sourceUrl": "https://hypothesis.readthedocs.io/"
+        },
+        {
+          "statement": "¿Qué busca el fuzzing?",
+          "options": [
+            "Mejor diseño",
+            "Resultados correctos",
+            "Excepciones no controladas, cuelgues y consumo desbocado",
+            "Cobertura del 100 %"
+          ],
+          "correct": 2,
+          "explanation": "Contra el parser ingenuo encontró 977 IndexError en 2.000 entradas.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 17 Propiedades y fuzzing",
+          "sourceUrl": "https://hypothesis.readthedocs.io/"
+        },
+        {
+          "statement": "«Agregar un producto nunca baja el subtotal» es una relación…",
+          "options": [
+            "Metamórfica",
+            "De idempotencia",
+            "De ida y vuelta",
+            "De contrato"
+          ],
+          "correct": 0,
+          "explanation": "Relaciona dos ejecuciones sin conocer el valor exacto.",
+          "difficulty": 3,
+          "source": "Pruebas desde cero · Cap. 17 Propiedades y fuzzing",
+          "sourceUrl": "https://hypothesis.readthedocs.io/"
+        },
+        {
+          "statement": "Promedio 8,5 ms y p99 de 121 ms. ¿Qué indica?",
+          "options": [
+            "Una de cada cien solicitudes es muy lenta",
+            "Hay errores",
+            "Todo está bien",
+            "El servidor está caído"
+          ],
+          "correct": 0,
+          "explanation": "El promedio esconde la cola.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 18 Rendimiento y carga"
+        },
+        {
+          "statement": "¿Qué prueba busca fugas de memoria durante horas?",
+          "options": [
+            "Picos",
+            "Carga",
+            "Estrés",
+            "Resistencia"
+          ],
+          "correct": 3,
+          "explanation": "Carga normal sostenida.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 18 Rendimiento y carga"
+        },
+        {
+          "statement": "¿Cuándo se acuerdan los objetivos de rendimiento?",
+          "options": [
+            "Al lanzar",
+            "Nunca",
+            "Antes de medir",
+            "Después de medir"
+          ],
+          "correct": 2,
+          "explanation": "Medir sin objetivo produce números sin interpretación.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 18 Rendimiento y carga"
+        },
+        {
+          "statement": "¿Por qué descartar las primeras solicitudes?",
+          "options": [
+            "Son errores",
+            "Calentamiento: cachés vacías y compilación",
+            "Por privacidad",
+            "Son más rápidas"
+          ],
+          "correct": 1,
+          "explanation": "El ejemplo descarta 40 antes de medir.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 18 Rendimiento y carga"
+        },
+        {
+          "statement": "La «omisión coordinada» ocurre cuando…",
+          "options": [
+            "El servidor coordina reintentos",
+            "El generador espera cada respuesta y una pausa reduce las solicitudes enviadas",
+            "Hay dos generadores",
+            "Se omiten errores"
+          ],
+          "correct": 1,
+          "explanation": "Esconde la demora real; las herramientas serias generan a ritmo constante.",
+          "difficulty": 3,
+          "source": "Pruebas desde cero · Cap. 18 Rendimiento y carga"
+        },
+        {
+          "statement": "¿Qué hace segura la búsqueda por correo?",
+          "options": [
+            "Usar mayúsculas",
+            "Escapar comillas a mano",
+            "Validar en el cliente",
+            "Consultas parametrizadas"
+          ],
+          "correct": 3,
+          "explanation": "El motor trata la entrada como dato, nunca como SQL.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 19 Seguridad defensiva",
+          "sourceUrl": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "statement": "Con la consulta concatenada, «' OR '1'='1» devolvió…",
+          "options": [
+            "Un error 404",
+            "Ningún pedido",
+            "Los 2 pedidos de la base",
+            "Solo el de Ana"
+          ],
+          "correct": 2,
+          "explanation": "La condición siempre verdadera devuelve todo.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 19 Seguridad defensiva",
+          "sourceUrl": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "statement": "Ana pide el pedido de Luis. La API debe responder…",
+          "options": [
+            "200 con el pedido",
+            "302",
+            "500",
+            "403 o 404"
+          ],
+          "correct": 3,
+          "explanation": "Control de acceso por dueño del recurso.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 19 Seguridad defensiva",
+          "sourceUrl": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "statement": "Un secreto se subió al repositorio. ¿Qué hay que hacer?",
+          "options": [
+            "Nada si nadie lo vio",
+            "Rotarlo",
+            "Hacer el repositorio privado basta",
+            "Borrarlo del archivo basta"
+          ],
+          "correct": 1,
+          "explanation": "Ya está en el historial; hay que invalidarlo.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 19 Seguridad defensiva",
+          "sourceUrl": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "statement": "¿Qué revela la cabecera Server: Mercadito/1.0?",
+          "options": [
+            "El usuario",
+            "Nada relevante",
+            "La IP",
+            "La versión exacta del software"
+          ],
+          "correct": 3,
+          "explanation": "Dato útil para un atacante.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 19 Seguridad defensiva",
+          "sourceUrl": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "statement": "Las pruebas de seguridad se hacen…",
+          "options": [
+            "Sobre sistemas propios o con autorización escrita",
+            "Sin alcance definido",
+            "Solo en producción",
+            "Sobre cualquier sitio público"
+          ],
+          "correct": 0,
+          "explanation": "Probar sistemas ajenos sin permiso es ilegal en la mayoría de países.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 19 Seguridad defensiva",
+          "sourceUrl": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "statement": "Contraste mínimo WCAG AA para texto normal:",
+          "options": [
+            "4,5:1",
+            "7:1",
+            "3:1",
+            "21:1"
+          ],
+          "correct": 0,
+          "explanation": "Texto grande: 3:1; AAA normal: 7:1.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 20 Accesibilidad y usabilidad",
+          "sourceUrl": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+        },
+        {
+          "statement": "¿Qué contraste tiene el duotono de Arcanos (#f4a582 sobre #1f2a5c)?",
+          "options": [
+            "21:1",
+            "6,83:1",
+            "4,5:1",
+            "2,85:1"
+          ],
+          "correct": 1,
+          "explanation": "Cumple AA para todo texto y AAA para texto grande.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 20 Accesibilidad y usabilidad",
+          "sourceUrl": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+        },
+        {
+          "statement": "Una imagen decorativa debe llevar…",
+          "options": [
+            "Ningún atributo",
+            "Un alt descriptivo largo",
+            "alt vacío",
+            "title"
+          ],
+          "correct": 2,
+          "explanation": "alt=\"\" hace que el lector la ignore.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 20 Accesibilidad y usabilidad",
+          "sourceUrl": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+        },
+        {
+          "statement": "Qué proporción de problemas suelen detectar las herramientas automáticas:",
+          "options": [
+            "Entre un tercio y la mitad",
+            "Todos",
+            "El 99 %",
+            "Ninguno"
+          ],
+          "correct": 0,
+          "explanation": "El resto requiere personas y tecnologías de apoyo.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 20 Accesibilidad y usabilidad",
+          "sourceUrl": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+        },
+        {
+          "statement": "Área táctil mínima recomendada en Android:",
+          "options": [
+            "24 × 24 dp",
+            "64 × 64 dp",
+            "32 × 32 dp",
+            "48 × 48 dp"
+          ],
+          "correct": 3,
+          "explanation": "Además, texto en sp y contentDescription en íconos.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 20 Accesibilidad y usabilidad",
+          "sourceUrl": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+        },
+        {
+          "statement": "¿Cuántos problemas encontró revisar() en la plantilla de ejemplo?",
+          "options": [
+            "10",
+            "3",
+            "5",
+            "7"
+          ],
+          "correct": 3,
+          "explanation": "Cifrado, acceso público, etiquetas, timeout, memoria, retención y alarmas.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 21 Infraestructura como código y nube",
+          "sourceUrl": "https://docs.aws.amazon.com/cdk/v2/guide/testing.html"
+        },
+        {
+          "statement": "¿Qué hace una prueba de instantánea?",
+          "options": [
+            "Valida reglas de seguridad",
+            "Falla si la plantilla cambió respecto a la aprobada",
+            "Mide costos",
+            "Despliega la pila"
+          ],
+          "correct": 1,
+          "explanation": "Obliga a mirar cada cambio; no dice si es bueno.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 21 Infraestructura como código y nube",
+          "sourceUrl": "https://docs.aws.amazon.com/cdk/v2/guide/testing.html"
+        },
+        {
+          "statement": "¿Qué NO verifica un emulador de AWS?",
+          "options": [
+            "La respuesta de la Lambda",
+            "El registro en DynamoDB emulado",
+            "El código de estado de la API",
+            "Permisos reales de IAM y cuotas"
+          ],
+          "correct": 3,
+          "explanation": "Por eso se combina con una prueba de humo en la nube real.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 21 Infraestructura como código y nube",
+          "sourceUrl": "https://docs.aws.amazon.com/cdk/v2/guide/testing.html"
+        },
+        {
+          "statement": "Un grupo de registros sin RetentionInDays…",
+          "options": [
+            "Se borra solo",
+            "Es más seguro",
+            "No se crea",
+            "Crece y cuesta para siempre"
+          ],
+          "correct": 3,
+          "explanation": "Regla nacida de un costo.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 21 Infraestructura como código y nube",
+          "sourceUrl": "https://docs.aws.amazon.com/cdk/v2/guide/testing.html"
+        },
+        {
+          "statement": "¿Qué hace Template.fromStack en CDK?",
+          "options": [
+            "Borra la pila",
+            "Despliega en AWS",
+            "Crea credenciales",
+            "Sintetiza la plantilla en memoria para inspeccionarla"
+          ],
+          "correct": 3,
+          "explanation": "Pruebas de infraestructura sin cuenta de AWS.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 21 Infraestructura como código y nube",
+          "sourceUrl": "https://docs.aws.amazon.com/cdk/v2/guide/testing.html"
+        },
+        {
+          "statement": "¿Qué falla es la más traicionera para cobros?",
+          "options": [
+            "El servidor responde rápido",
+            "Se pierde la respuesta",
+            "Se pierde la solicitud",
+            "El cliente cancela"
+          ],
+          "correct": 1,
+          "explanation": "El servidor ya cobró y el cliente reintenta.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 22 Sistemas distribuidos",
+          "sourceUrl": "https://docs.pact.io/"
+        },
+        {
+          "statement": "Sin idempotencia y 30 % de respuestas perdidas, ¿cuántos cobros duplicados hubo en 200 pedidos?",
+          "options": [
+            "30",
+            "0",
+            "200",
+            "98"
+          ],
+          "correct": 3,
+          "explanation": "298 cobros en total; con clave de idempotencia, 200 exactos.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 22 Sistemas distribuidos",
+          "sourceUrl": "https://docs.pact.io/"
+        },
+        {
+          "statement": "¿Qué debe ser igual en todos los reintentos?",
+          "options": [
+            "La clave de idempotencia",
+            "El puerto",
+            "La hora",
+            "El número de intento"
+          ],
+          "correct": 0,
+          "explanation": "Si incluye el intento, el servidor no reconoce el duplicado.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 22 Sistemas distribuidos",
+          "sourceUrl": "https://docs.pact.io/"
+        },
+        {
+          "statement": "¿Cómo se espera la consistencia eventual en una prueba?",
+          "options": [
+            "Reiniciar la base",
+            "Esperar una condición con tiempo límite",
+            "No se prueba",
+            "sleep(10)"
+          ],
+          "correct": 1,
+          "explanation": "Igual que las aserciones de Playwright.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 22 Sistemas distribuidos",
+          "sourceUrl": "https://docs.pact.io/"
+        },
+        {
+          "statement": "La ingeniería del caos requiere…",
+          "options": [
+            "Apagar todo",
+            "Hipótesis, alcance limitado, monitoreo y forma de detener",
+            "Empezar en producción",
+            "No avisar al equipo"
+          ],
+          "correct": 1,
+          "explanation": "Nunca sin acuerdo del equipo.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 22 Sistemas distribuidos",
+          "sourceUrl": "https://docs.pact.io/"
+        },
+        {
+          "statement": "Precisión de los casos generados por IA en el ejemplo:",
+          "options": [
+            "0,57",
+            "0,25",
+            "0,80",
+            "1,0"
+          ],
+          "correct": 0,
+          "explanation": "4 útiles de 7 propuestas.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 23 IA en las pruebas"
+        },
+        {
+          "statement": "¿Por qué G7 («socia rural no paga envío») es peligroso?",
+          "options": [
+            "Usa una regla inexistente",
+            "Es un duplicado",
+            "Usa reglas reales y llega a una conclusión falsa plausible",
+            "No es JSON"
+          ],
+          "correct": 2,
+          "explanation": "Más difícil de detectar que una regla inventada.",
+          "difficulty": 3,
+          "source": "Pruebas desde cero · Cap. 23 IA en las pruebas"
+        },
+        {
+          "statement": "La exhaustividad mide…",
+          "options": [
+            "Propuestas útiles sobre propuestas",
+            "Velocidad del modelo",
+            "Costo del prompt",
+            "Parte de la referencia que quedó cubierta"
+          ],
+          "correct": 3,
+          "explanation": "4 de 7 escenarios de referencia: 0,57.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 23 IA en las pruebas"
+        },
+        {
+          "statement": "Antes de enviar un prompt a un servicio externo…",
+          "options": [
+            "No importa el contenido",
+            "Quita datos personales y secretos",
+            "Incluye la clave de API en el texto",
+            "Incluye datos reales para mayor precisión"
+          ],
+          "correct": 1,
+          "explanation": "Enviar un prompt es sacar datos de la organización.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 23 IA en las pruebas"
+        },
+        {
+          "statement": "¿Cómo se prueban salidas no deterministas de un modelo?",
+          "options": [
+            "Igualdad exacta",
+            "No se prueban",
+            "Propiedades y conjuntos de evaluación con métricas",
+            "Una sola ejecución"
+          ],
+          "correct": 2,
+          "explanation": "Formato, ausencia de datos personales, aciertos por categoría.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 23 IA en las pruebas"
+        },
+        {
+          "statement": "Una estrategia de pruebas empieza por…",
+          "options": [
+            "La cobertura",
+            "Las herramientas",
+            "Los riesgos",
+            "El presupuesto de CI"
+          ],
+          "correct": 2,
+          "explanation": "Probabilidad × impacto decide el esfuerzo.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 24 Estrategia de pruebas"
+        },
+        {
+          "statement": "¿Qué métrica es peligrosa como meta?",
+          "options": [
+            "Pruebas inestables",
+            "Defectos en producción",
+            "Número de casos de prueba",
+            "Tiempo de corrección"
+          ],
+          "correct": 2,
+          "explanation": "Incentiva casos triviales.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 24 Estrategia de pruebas"
+        },
+        {
+          "statement": "¿Cuándo conviene ejecutar mutación y fuzzing?",
+          "options": [
+            "Cada noche",
+            "Antes de cada commit",
+            "Solo en producción",
+            "Nunca"
+          ],
+          "correct": 0,
+          "explanation": "Son costosos para cada cambio.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 24 Estrategia de pruebas"
+        },
+        {
+          "statement": "Los criterios de salida…",
+          "options": [
+            "Informan a quien decide, que puede aceptar riesgos conocidos",
+            "Se escriben después de probar",
+            "Deciden solos el lanzamiento",
+            "Son opcionales"
+          ],
+          "correct": 0,
+          "explanation": "Lo inaceptable es lanzar con riesgos desconocidos.",
+          "difficulty": 2,
+          "source": "Pruebas desde cero · Cap. 24 Estrategia de pruebas"
+        },
+        {
+          "statement": "¿Qué pregunta acompaña cada prueba según el libro?",
+          "options": [
+            "¿Quién la escribió?",
+            "¿Qué herramienta usa?",
+            "¿Cuánto cuesta?",
+            "¿Qué decisión permite tomar?"
+          ],
+          "correct": 3,
+          "explanation": "Con ella cualquier herramienta se aprende rápido.",
+          "difficulty": 1,
+          "source": "Pruebas desde cero · Cap. 24 Estrategia de pruebas"
+        }
+      ]
+    }
+  ]
+}
